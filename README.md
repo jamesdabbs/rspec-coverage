@@ -24,7 +24,7 @@ Or install it yourself as:
 
 As early as possible in your code (before your classes load), add
 
-```
+```ruby
 require 'rspec/coverage'
 # Takes the same optional args as SimpleCov.start
 RSpec::Coverage.start
@@ -32,7 +32,7 @@ RSpec::Coverage.start
 
 and use `rspec` as normal. Any `describe` block will automatically filter coverage to the class under test. You can also add a `covers:` annotation to control filtering.
 
-```
+```ruby
 RSpec.describe "User with collaborators", covers: [User, Collaborator] do
   ...
 end
