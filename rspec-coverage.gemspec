@@ -5,13 +5,13 @@ require 'rspec/coverage/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rspec-coverage"
-  spec.version       = Rspec::Coverage::VERSION
+  spec.version       = RSpec::Coverage::VERSION
   spec.authors       = ["James Dabbs"]
   spec.email         = ["jamesdabbs@gmail.com"]
 
   spec.summary       = %q{Filter test results to include only the system under test}
   spec.description   = %q{Filter test results to include only the system under test. A port of minitest-coverage}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/jamesdabbs/rspec-coverage"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

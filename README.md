@@ -1,8 +1,8 @@
 # Rspec::Coverage
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rspec/coverage`. To experiment with that code, run `bin/console` for an interactive prompt.
+_Inspired by Ryan Davis' RubyConf 2016 talk._
 
-TODO: Delete this and the text above, and describe your gem
+SimpleCov-backed coverage-tracking tools for RSpec. Coverage is only recorded in a `describe` block for the class being `describe`d, which prevents incidental coverage of unverified lines in collaborators and encourages better test design.
 
 ## Installation
 
@@ -22,20 +22,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+As early as possible in your code (before your classes load), add
 
-## Development
+```
+require 'rspec/coverage'
+# Takes the same optional args as SimpleCov.start
+RSpec::Coverage.start
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+and use `rspec` as normal. Any `describe` block will automatically filter coverage to the class under test. You can also add a `covers:` annotation to control filtering.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```
+RSpec.describe "User with collaborators", covers: [User, Collaborator] do
+  ...
+end
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rspec-coverage. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jamesdabbs/rspec-coverage. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
