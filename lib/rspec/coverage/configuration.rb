@@ -10,10 +10,10 @@ module RSpec
         @runner  = Runner.new map
       end
 
-      def start *args
+      def start *args, &block
         @builder.enable
 
-        SimpleCov.start(*args)
+        SimpleCov.start(*args, &block)
         SimpleCov.at_exit do
           SimpleCov.formatter.new.format SimpleCov::Result.new runner.result
         end
