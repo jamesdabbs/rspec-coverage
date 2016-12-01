@@ -23,8 +23,8 @@ module RSpec
       @config ||= Configuration.new root
     end
 
-    def self.start *args
-      config.start(*args)
+    def self.start *args, &block
+      config.start(*args, &block)
     end
   end
 end
